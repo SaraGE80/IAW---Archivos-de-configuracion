@@ -1,0 +1,39 @@
+*NGINX*
+sudo mkdir -p /var/www/NOMBRE
+sudo nano /var/www/NOMBRE/index.html -> meter contenido
+sudo chown -R www-data /var/www/NOMBRE
+sudo chmod -R 755 /var/www/NOMBRE
+
+sudo nano /etc/nginx/sites-available/NOMBRE
+sudo ln -s /etc/nginx/sites-available/NOMBRE /etc/nginx/sites-enabled/
+sudo systemctl reload nginx
+
+*APACHE2*
+sudo mkdir -p /var/www/NOMBRE
+sudo nano /var/www/NOMBRE/index.html -> meter contenido
+sudo chown -R www-data /var/www/NOMBRE
+sudo chmod -R 755 /var/www/NOMBRE
+
+cd /etc/apache2/sites-available
+sudo cp EJEMPLO.conf NOMBRE.conf
+sudo nano /etc/apache2/sites-available/NOMBRE.conf
+sudo a2ensite NOMBRE
+sudo systemctl reload apache2
+
+
+*CLONAR REPOSITORIO GIT*
+sudo apt install git
+cd /var/www  <-- En la carpeta anterior a la que quieres, se debe llamar igual que el directorio a clonar
+sudo git clone https://github.com/victoria-nr/bookmedik .
+# probar si con el punto al final no crea la carpeta.
+
+*MARIADB y PHPMYADMIN*
+mysql -u root -p  -> conectar a mysql
+
+CREATE DATABASE newdb;
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'userpassword';
+GRANT ALL PRIVILEGES ON newdb.* to 'username'@'localhost';
+FLUSH PRIVILEGES;
+
+
+
